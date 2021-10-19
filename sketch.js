@@ -65,17 +65,32 @@ function draw() {
     }
     else if (diamondsG.isTouching(boy)) {
       diamondsG.destroyEach();
+      treasureCollection+=100;
 
       
     }else if(jwelleryG.isTouching(boy)) {
       jwelleryG.destroyEach();
+      treasureCollection+=150;
 
       
     }else{
       if(swordGroup.isTouching(boy)) {
-
+        gameState = END;
+        boy.addAnimation("SahilRunning", endImg);
+        boy.x = 200;
+        boy.y = 300;
+        swordGroup.destroyEach();
+        swordGroup.setVelocityYEach(0);
+        jwelleryG.destroyEach();
+        jwelleryG.setVelocityYEach(0);
+        diamondsG.destroyEach();
+        diamondsG.setVelocityYEach(0);
+        cashG.destroyEach();
+        cashG.setVelocityYEach(0);
     }
   }
+    
+  
   
   drawSprites();
   textSize(20);
